@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三十六小時天氣預報</title>
+    <style>
+        body {
+            background-color: rgb(240, 220, 194);
+            text-align: center;
+            margin: 0;
+        }
+
+        .title {
+            font-size: 24px;
+            background-image: linear-gradient(rgb(125, 107, 72), rgb(240, 220, 194));
+            color: black;
+            padding: 30px;
+        }
+
+        .city {
+            width: 200px;
+            border-radius: 12px;
+            border: 1px black solid;
+            padding: 6px;
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            background-color: rgb(62, 150, 150);
+        }
+
+        .cities {
+            margin: auto;
+        }
+
+        .city:hover {
+            text-decoration: none;
+            background-color: blueviolet;
+        }
+
+        .top {
+            padding: 6px 12px;
+            color: black;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        .top:hover {
+            padding: 6px 12px;
+            color: white;
+            font-size: 22px;
+            background-color: rgb(62, 150, 150);
+            text-decoration: none;
+        }
+
+        .now {
+            padding: 6px 12px;
+            color: white;
+            font-size: 22px;
+            background-color: rgb(62, 150, 150);
+            text-decoration: none;
+            border: 3px rgb(221, 92, 75) solid;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="title">天氣預報</div>
+    <a href="/" class="top">首頁</a><a href="/36hr" class="top">36小時預報</a><a href="/2daydetail" class="now">詳細2天預報</a><a
+        href="/news" class="top">新聞快報</a>
+    <hr>
+
+    <div class="cities">
+        <br>
+        <br>
+        {% for id in city_id %}
+        {% if loop.index%5==1 %}
+        <br><br>
+        {% endif %}
+        <a href="/2daydetail/city={{city_id[id]}}&id={{id}}" class="city">{{city_id[id]}}</a>
+        {% endfor %}
+    </div>
+
+
+</body>
+
+</html>
